@@ -9,9 +9,9 @@ public class Detalle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "",nullable = false)
-    private Integer costoTotal;
+    private Integer costoTotal;//obligatorio solo numeros pocitivos
     @Column(name = "",nullable = false)
-    private Integer cantidadProductos;
+    private Integer cantidadProductos;//obligatorio solo numeros pocitivos
 
     public Detalle() {
     }

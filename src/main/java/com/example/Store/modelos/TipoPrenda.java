@@ -9,7 +9,7 @@ public class TipoPrenda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nombre",nullable = false,length = 50)
-    private String nombre;
+    private String nombre;//no vacido solo letras y espacios long-max 80
 
     public TipoPrenda() {
     }

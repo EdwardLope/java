@@ -13,13 +13,13 @@ public class Marca {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nombreMarca",nullable = false,length = 25)
-    private String nombreMarca;
+    private String nombreMarca;//obligatorio con espacios long-max 50
     @Column(name = "nit",nullable = false,length = 25)
-    private String nit;
+    private String nit;//obligatorio solo numeros long-max 10
     @Column(name = "anoCreacion",nullable = false)
-    private LocalDate anoCreacion;
+    private LocalDate anoCreacion;//obligatorio
     @Column(name = "sedePrincipal",nullable = false,length = 25)
-    private String sedePrincipal;
+    private String sedePrincipal;//no se valida
 
     public Marca() {
     }
