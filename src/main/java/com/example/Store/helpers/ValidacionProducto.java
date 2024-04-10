@@ -1,6 +1,6 @@
 package com.example.Store.helpers;
 
-public class validacionProducto {
+public class ValidacionProducto {
     private EvaluarPatron evaluarPatron=new EvaluarPatron();
 
     public boolean validarNombreProducto(String nombreProducto)throws Exception{
