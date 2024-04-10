@@ -6,6 +6,8 @@ import com.example.Store.repositorio.UsuarioRepositirio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UsuarioServicio {
 
@@ -19,6 +21,22 @@ public class UsuarioServicio {
 
     public Usuario guardarUsuario(){
         return null;
+    }
+
+    public  Usuario buscarUsuarioPorId(){
+        return null;
+    }
+
+    public List<Usuario>buscarTodosUsuarios(){
+        return null;
+    }
+
+    public Usuario modificarUsuario(){
+        return null;
+    }
+
+    public boolean eliminarUsuario(){
+        return true;
     }
 
 
