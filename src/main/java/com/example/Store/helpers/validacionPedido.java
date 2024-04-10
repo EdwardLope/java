@@ -1,4 +1,4 @@
-package com.example.Store.heipers;
+package com.example.Store.helpers;
 
 public class validacionPedido {
     private EvaluarPatron evaluarPatron=new EvaluarPatron();
