@@ -9,24 +9,24 @@ import java.time.LocalDateTime;
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-@Column(name ="FechaYHora",nullable = false )
+    private Integer id_pedido;
+    @Column(name ="FechaYHora",nullable = false )
     private LocalDateTime FechaYHora;//obligatorio y formato internacional
 
     public Pedido() {
     }
 
     public Pedido(Integer id, LocalDateTime fechaYHora) {
-        this.id = id;
+        this.id_pedido = id;
         FechaYHora = fechaYHora;
     }
 
     public Integer getId() {
-        return id;
+        return id_pedido;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_pedido = id;
     }
 
     public LocalDateTime getFechaYHora() {

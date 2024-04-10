@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_usuario;
     @Column(name="nombres",nullable = false,length = 20)
     private String nombres; //no vacio-solo letras y espacos-long max 50 caracteres
     @Column(name="apellidos",nullable = false,length = 20)
@@ -37,7 +37,7 @@ public class Usuario {
     }
 
     public Usuario(Integer id, String nombres, String apellidos, String cedula, String correo, String direccion, String sexo, String medioPago, String pais, String departamento, String municipio, String codigoPostal) {
-        this.id = id;
+        this.id_usuario = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.cedula = cedula;
@@ -52,11 +52,11 @@ public class Usuario {
     }
 
     public Integer getId() {
-        return id;
+        return id_usuario;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_usuario = id;
     }
 
     public String getNombres() {

@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Detalle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_detalle;
     @Column(name = "",nullable = false)
     private Integer costoTotal;//obligatorio solo numeros pocitivos
     @Column(name = "",nullable = false)
@@ -17,17 +17,17 @@ public class Detalle {
     }
 
     public Detalle(Integer id, Integer costoTotal, Integer cantidadProductos) {
-        this.id = id;
+        this.id_detalle = id;
         this.costoTotal = costoTotal;
         this.cantidadProductos = cantidadProductos;
     }
 
     public Integer getId() {
-        return id;
+        return id_detalle;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_detalle = id;
     }
 
     public Integer getCostoTotal() {

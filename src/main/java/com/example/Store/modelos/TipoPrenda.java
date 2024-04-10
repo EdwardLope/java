@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class TipoPrenda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_tipoPrenda;
     @Column(name = "nombre",nullable = false,length = 50)
     private String nombre;//no vacido solo letras y espacios long-max 80
 
@@ -15,16 +15,16 @@ public class TipoPrenda {
     }
 
     public TipoPrenda(Integer id, String nombre) {
-        this.id = id;
+        this.id_tipoPrenda = id;
         this.nombre = nombre;
     }
 
     public Integer getId() {
-        return id;
+        return id_tipoPrenda;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_tipoPrenda = id;
     }
 
     public String getNombre() {

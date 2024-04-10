@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_producto;
     @Column(name = "nombreProducto",nullable = false,length = 50)
     private String nombreProducto;//no vacio solo letras y espacios long-max 60
     @Column(name = "referencia",nullable = false,length = 25)
@@ -23,12 +23,22 @@ public class Producto {
     @Column(name = "descripcion",nullable = true,length = 100)
     private String descripcion;//lonmax-100
 
+    @ManyToOne
+    @JoinColumn(name = "id_detalle",referencedColumnName = "id_detalle")
+    Detalle detalle;
+    @ManyToOne
+    @JoinColumn(name ="id_marca",referencedColumnName = "id_marca")
+    Marca marca;
+    @ManyToOne
+    @JoinColumn(name = "id_tipoPrenda",referencedColumnName = "id_tipoPrenda")
+    TipoPrenda tipoPrenda;
+
 
     public Producto() {
     }
 
     public Producto(Integer id, String nombreProducto, String referencia, String talla, Integer cantidadBodega, Integer precioUnitario, String descripcion, String fotografia) {
-        this.id = id;
+        this.id_producto = id;
         this.nombreProducto = nombreProducto;
         this.referencia = referencia;
         this.talla = talla;
@@ -39,11 +49,11 @@ public class Producto {
     }
 
     public Integer getId() {
-        return id;
+        return id_producto;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_producto = id;
     }
 
     public String getNombreProducto() {
