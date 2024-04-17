@@ -20,7 +20,7 @@ public class ProductoServicio {
             if(validacionProducto.validarNombreProducto(datosProducto.getNombreProducto())==false) {
                 throw new Exception("NOMBRE INVALIDO, REVISE PORFAVOR");
             }
-            if(validacionProducto.validarCantidadBodega(datosProducto.getCantidadBodega())==false) {
+            if(validacionProducto.validarCantidadBodega(String.valueOf(datosProducto.getCantidadBodega()))==false) {
                 throw new Exception("CANTIDAD INVALIDA, REVISE PORFAVOR");
             }
             if(validacionProducto.validarDescripcion(datosProducto.getDescripcion())==false) {
@@ -29,7 +29,7 @@ public class ProductoServicio {
             if(validacionProducto.validarFotografia(datosProducto.getFotografia())==false) {
                 throw new Exception("FOTOGRAFIA INVALIDA, REVISE PORFAVOR");
             }
-            if(validacionProducto.validarPrecioUnitario(datosProducto.getPrecioUnitario())==false) {
+            if(validacionProducto.validarPrecioUnitario(String.valueOf(datosProducto.getPrecioUnitario()))==false) {
                 throw new Exception("PRECIO UNITARIO INVALIDO, REVISE PORFAVOR");
             }
             if (validacionProducto.validarReferencia(datosProducto.getReferencia())==false){
@@ -43,8 +43,16 @@ public class ProductoServicio {
         }
     }
 
-    public  Producto buscarProductoPorId(){
-        return null;
+    public  Producto buscarProductoPorId(Integer idProduto)throws Exception{
+        try{
+            if (productoRepositorio.findById(idProduto).isPresent()){
+                return productoRepositorio.findById(idProduto).get();
+            } else {
+                throw new Exception("Usuario no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public List<Producto> buscarTodosProductos(){

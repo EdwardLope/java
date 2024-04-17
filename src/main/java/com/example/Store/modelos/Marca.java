@@ -55,7 +55,7 @@ public class Marca {
         this.nit = nit;
     }
 
-    public String getAnoCreacion() {
+    public LocalDate getAnoCreacion() {
         return anoCreacion;
     }
 

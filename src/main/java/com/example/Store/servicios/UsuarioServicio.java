@@ -42,8 +42,16 @@ public class UsuarioServicio {
         }
     }
 
-    public  Usuario buscarUsuarioPorId(){
-        return null;
+    public  Usuario buscarUsuarioPorId(Integer idUsuario)throws Exception{
+        try{
+            if (usuarioRepositirio.findById(idUsuario).isPresent()){
+                return usuarioRepositirio.findById(idUsuario).get();
+            } else {
+                throw new Exception("Usuario no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public List<Usuario>buscarTodosUsuarios(){

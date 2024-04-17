@@ -17,10 +17,10 @@ public class DetalleServicio {
 
     public Detalle guardarDetalle(Detalle datosDetalle) throws Exception{
         try{
-            if(validacionDetalle.validarCantidadProductos(datosDetalle.getCantidadProductos())==false) {
+            if(validacionDetalle.validarCantidadProductos(String.valueOf(datosDetalle.getCantidadProductos()))==false) {
                 throw new Exception("CANTIDAD DE PRODUCTOS INVALIDO, REVISE PORFAVOR");
             }
-            if (validacionDetalle.validarCostoTotal(datosDetalle.getCostoTotal())==false)
+            if (validacionDetalle.validarCostoTotal(String.valueOf(datosDetalle.getCostoTotal()))==false)
                 throw new Exception("COSTO TOTAL INVALIDO, REVISE PORFAVOR");
             return detalleRepositorio.save(datosDetalle);
         }catch (Exception error){
@@ -28,8 +28,16 @@ public class DetalleServicio {
         }
     }
 
-    public  Detalle buscarDetallePorId(){
-        return null;
+    public  Detalle buscarDetallePorId(Integer idDetalle)throws Exception{
+        try{
+            if (detalleRepositorio.findById(idDetalle).isPresent()){
+                return detalleRepositorio.findById(idDetalle).get();
+            } else {
+                throw new Exception("Usuario no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public List<Detalle> buscarTodosDetalle(){

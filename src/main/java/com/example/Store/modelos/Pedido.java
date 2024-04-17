@@ -29,7 +29,7 @@ public class Pedido {
         this.id_pedido = id;
     }
 
-    public String getFechaYHora() {
+    public LocalDateTime getFechaYHora() {
         return FechaYHora;
     }
 

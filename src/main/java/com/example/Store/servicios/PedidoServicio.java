@@ -18,7 +18,7 @@ public class PedidoServicio {
 
     public Pedido guardarPedido(Pedido datosPedido) throws Exception{
         try{
-            if(validacionPedido.validarFechaHora(datosPedido.getFechaYHora())==false) {
+            if(validacionPedido.validarFechaHora(String.valueOf(datosPedido.getFechaYHora()))==false) {
                 throw new Exception("NOMBRE INVALIDO, REVISE PORFAVOR");
             }  return pedidoRepositorio.save(datosPedido);
         }catch (Exception error){
@@ -27,8 +27,16 @@ public class PedidoServicio {
     }
 
 
-    public  Usuario buscarPedidoPorId(){
-        return null;
+    public  Pedido buscarPedidoPorId(Integer idPedido)throws Exception{
+        try{
+            if (pedidoRepositorio.findById(idPedido).isPresent()){
+                return pedidoRepositorio.findById(idPedido).get();
+            } else {
+                throw new Exception("Usuario no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public List<Pedido> buscarTodosPedidos(){

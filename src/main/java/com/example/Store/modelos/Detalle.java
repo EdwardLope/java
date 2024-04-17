@@ -30,7 +30,7 @@ public class Detalle {
         this.id_detalle = id;
     }
 
-    public String getCostoTotal() {
+    public Integer getCostoTotal() {
         return costoTotal;
     }
 
@@ -38,7 +38,7 @@ public class Detalle {
         this.costoTotal = costoTotal;
     }
 
-    public String getCantidadProductos() {
+    public Integer getCantidadProductos() {
         return cantidadProductos;
     }
 

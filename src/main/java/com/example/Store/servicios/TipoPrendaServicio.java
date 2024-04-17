@@ -17,7 +17,7 @@ public class TipoPrendaServicio {
     public TipoPrenda guardarTipoPrenda(TipoPrenda datosTipoPrenda) throws Exception{
         try {
             if (validacionTipoPrenda.validarNombre(datosTipoPrenda.getNombre()) == false) {
-                throw new Exception("NOMBRe INVALIDO, REVISE PORFAVOR");
+                throw new Exception("NOMBRE INVALIDO, REVISE PORFAVOR");
             }
             return tipoPrendaRepositorio.save(datosTipoPrenda);
         } catch (Exception error) {
@@ -26,8 +26,16 @@ public class TipoPrendaServicio {
     }
 
 
-    public  TipoPrenda buscarTipoPrendaPorId(){
-        return null;
+    public  TipoPrenda buscarTipoPrendaPorId(Integer idUsuario)throws Exception{
+        try{
+            if (tipoPrendaRepositorio.findById(idUsuario).isPresent()){
+                return tipoPrendaRepositorio.findById(idUsuario).get();
+            } else {
+                throw new Exception("Usuario no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public List<TipoPrenda> buscarTodosTipoPrenda(){

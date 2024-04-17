@@ -23,7 +23,7 @@ public class MarcaServicio {
             if (validacionMarca.validarNit(datosMarca.getNit())==false) {
                 throw new Exception("NIT INVALIDO, REVISE PORFAVOR");
             }
-            if (validacionMarca.validarAnoCreacion(datosMarca.getAnoCreacion())==false){
+            if (validacionMarca.validarAnoCreacion(String.valueOf(datosMarca.getAnoCreacion()))==false){
                 throw new Exception("AÑO CREACION INVALIDO, REVISE PORFAVOR");
             }
             return marcaRepositorio.save(datosMarca);
@@ -32,8 +32,16 @@ public class MarcaServicio {
         }
     }
 
-    public  Marca buscarMarcaPorId(){
-        return null;
+    public  Marca buscarMarcaPorId(Integer idMarca)throws Exception{
+        try{
+            if (marcaRepositorio.findById(idMarca).isPresent()){
+                return marcaRepositorio.findById(idMarca).get();
+            } else {
+                throw new Exception("Usuario no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public List<Marca> buscarTodosMarca(){
