@@ -19,8 +19,27 @@ public class UsuarioServicio {
 
     // en el servicio se crea un metodo para cada una de las consultas en BD
 
-    public Usuario guardarUsuario(){
-        return null;
+    public  Usuario guardarUsuario(Usuario datosUsuario) throws  Exception{
+        try{
+            if(validacionUsuario.validarNombres(datosUsuario.getNombres())==true){
+                if (validacionUsuario.validarCedula(datosUsuario.getCedula())==true){
+                    if (validacionUsuario.validarCorreo(datosUsuario.getCorreo())==true){
+                        if (validacionUsuario.validarSexo(datosUsuario.getSexo())==true){
+                            if (validacionUsuario.validarCodigoPostal(datosUsuario.getCodigoPostal())==true){
+                                //en este apartado ya se puede guardar datos porque todos estan correctos
+
+                                //llamar a la capa responsable de guardar estos en BD
+                                return usuarioRepositirio.save(datosUsuario);
+                            }
+                        }
+                    }
+                }
+            }
+            return  null;
+
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public  Usuario buscarUsuarioPorId(){
