@@ -44,8 +44,12 @@ public class MarcaServicio {
         }
     }
 
-    public List<Marca> buscarTodosMarca(){
-        return null;
+    public List<Marca> buscarTodosMarca()throws Exception{
+        try {
+            return marcaRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public Marca modificarMarca(){

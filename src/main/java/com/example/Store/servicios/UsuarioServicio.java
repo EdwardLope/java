@@ -54,8 +54,12 @@ public class UsuarioServicio {
         }
     }
 
-    public List<Usuario>buscarTodosUsuarios(){
-        return null;
+    public List<Usuario>buscarTodosUsuarios()throws Exception{
+        try {
+            return usuarioRepositirio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public Usuario modificarUsuario(){

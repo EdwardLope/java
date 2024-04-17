@@ -39,8 +39,12 @@ public class PedidoServicio {
         }
     }
 
-    public List<Pedido> buscarTodosPedidos(){
-        return null;
+    public List<Pedido> buscarTodosPedidos()throws Exception{
+        try {
+            return pedidoRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public Pedido modificarPedido(){

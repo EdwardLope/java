@@ -55,8 +55,12 @@ public class ProductoServicio {
         }
     }
 
-    public List<Producto> buscarTodosProductos(){
-        return null;
+    public List<Producto> buscarTodosProductos()throws Exception{
+        try {
+            return productoRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public Producto modificarProducto(){

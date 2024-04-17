@@ -38,8 +38,12 @@ public class TipoPrendaServicio {
         }
     }
 
-    public List<TipoPrenda> buscarTodosTipoPrenda(){
-        return null;
+    public List<TipoPrenda> buscarTodosTipoPrenda()throws Exception{
+        try {
+            return tipoPrendaRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public TipoPrenda modificarTipoPrenda(){

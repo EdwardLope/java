@@ -40,8 +40,12 @@ public class DetalleServicio {
         }
     }
 
-    public List<Detalle> buscarTodosDetalle(){
-        return null;
+    public List<Detalle> buscarTodosDetalle()throws Exception{
+        try {
+            return detalleRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
     public Detalle modificarDetalle(){
