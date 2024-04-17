@@ -2,7 +2,6 @@ package com.example.Store.modelos;
 
 import jakarta.persistence.*;
 
-import java.awt.*;
 import java.time.LocalDate;
 
 @Entity
@@ -56,7 +55,7 @@ public class Marca {
         this.nit = nit;
     }
 
-    public LocalDate getAnoCreacion() {
+    public String getAnoCreacion() {
         return anoCreacion;
     }
 

@@ -88,7 +88,7 @@ public class Producto {
         this.fotografia = fotografia;
     }
 
-    public Integer getCantidadBodega() {
+    public String getCantidadBodega() {
         return cantidadBodega;
     }
 
@@ -96,7 +96,7 @@ public class Producto {
         this.cantidadBodega = cantidadBodega;
     }
 
-    public Integer getPrecioUnitario() {
+    public String getPrecioUnitario() {
         return precioUnitario;
     }
 

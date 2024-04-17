@@ -21,22 +21,22 @@ public class UsuarioServicio {
 
     public  Usuario guardarUsuario(Usuario datosUsuario) throws  Exception{
         try{
-            if(validacionUsuario.validarNombres(datosUsuario.getNombres())==true){
-                if (validacionUsuario.validarCedula(datosUsuario.getCedula())==true){
-                    if (validacionUsuario.validarCorreo(datosUsuario.getCorreo())==true){
-                        if (validacionUsuario.validarSexo(datosUsuario.getSexo())==true){
-                            if (validacionUsuario.validarCodigoPostal(datosUsuario.getCodigoPostal())==true){
-                                //en este apartado ya se puede guardar datos porque todos estan correctos
-
-                                //llamar a la capa responsable de guardar estos en BD
-                                return usuarioRepositirio.save(datosUsuario);
-                            }
-                        }
-                    }
-                }
+            if(validacionUsuario.validarNombres(datosUsuario.getNombres())==false) {
+                throw new Exception("NOMBRE INVALIDO, REVISE PORFAVOR");
             }
-            return  null;
-
+            if(validacionUsuario.validarCorreo(datosUsuario.getCorreo())==false) {
+                throw new Exception("CORREO INVALIDO, REVISE PORFAVOR");
+            }
+            if(validacionUsuario.validarSexo(datosUsuario.getSexo())==false) {
+                throw new Exception("SEXO INVALIDO, REVISE PORFAVOR");
+            }
+            if(validacionUsuario.validarCodigoPostal(datosUsuario.getCodigoPostal())==false) {
+                throw new Exception("CODIGO POSTAL INVALIDO, REVISE PORFAVOR");
+            }
+            if(validacionUsuario.validarCorreo(datosUsuario.getCorreo())==false) {
+                throw new Exception("CORREO INVALIDO, REVISE PORFAVOR");
+            }
+            return usuarioRepositirio.save(datosUsuario);
         }catch (Exception error){
             throw new Exception(error.getMessage());
         }
