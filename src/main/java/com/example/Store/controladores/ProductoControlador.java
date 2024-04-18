@@ -28,7 +28,7 @@ public class ProductoControlador {
         } catch (Exception error) {
             return  ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
-                    .body(null);
+                    .body(error.getMessage());
 
         }
     }

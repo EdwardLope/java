@@ -30,7 +30,7 @@ public class UsuarioControlador {
         } catch (Exception error) {
             return  ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
-                    .body(null);
+                    .body(error.getMessage());
 
         }
     }

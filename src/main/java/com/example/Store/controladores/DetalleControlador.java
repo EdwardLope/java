@@ -1,7 +1,6 @@
 package com.example.Store.controladores;
 
 import com.example.Store.modelos.Detalle;
-import com.example.Store.modelos.Usuario;
 import com.example.Store.servicios.DetalleServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("storeapi/v1/detalle")
-public class DetalleControlado {
+public class DetalleControlador {
 
     @Autowired
     DetalleServicio detalleServicio;
@@ -29,7 +28,7 @@ public class DetalleControlado {
         } catch (Exception error) {
             return  ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
-                    .body(null);
+                    .body(error.getMessage());
 
         }
     }
