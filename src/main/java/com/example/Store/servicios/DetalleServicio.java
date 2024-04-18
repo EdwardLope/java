@@ -5,9 +5,12 @@ import com.example.Store.modelos.Detalle;
 import com.example.Store.modelos.Usuario;
 import com.example.Store.repositorio.DetalleRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class DetalleServicio {
 
     @Autowired

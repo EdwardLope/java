@@ -1,5 +1,9 @@
 package com.example.Store.helpers;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ValidacionUsuario {
     private EvaluarPatron evaluarPatron=new EvaluarPatron();
 

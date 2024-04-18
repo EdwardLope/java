@@ -5,9 +5,11 @@ import com.example.Store.modelos.Pedido;
 import com.example.Store.modelos.Usuario;
 import com.example.Store.repositorio.PedidoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class PedidoServicio {
 
     @Autowired

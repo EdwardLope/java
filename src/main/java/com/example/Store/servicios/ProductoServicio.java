@@ -5,9 +5,11 @@ import com.example.Store.modelos.Producto;
 import com.example.Store.modelos.Usuario;
 import com.example.Store.repositorio.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ProductoServicio {
 
     @Autowired
