@@ -24,7 +24,7 @@ public class ValidacionUsuario {
     }
 
     public boolean validarCorreo(String correo)throws Exception{
-        String regex = "^[a-zA-Z\\s.,'-]{1,255}$";
+        String regex = "^[a-zA-Z\\s.,'-@]{1,255}$";
         if (!this.evaluarPatron.evaluarPatron(correo,regex)){
             throw new Exception("Reviza el correo");
         }

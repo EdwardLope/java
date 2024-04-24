@@ -10,30 +10,31 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_pedido;
-    @Column(name ="FechaYHora",nullable = false )
-    private LocalDateTime FechaYHora;//obligatorio y formato internacional
+    @Column(name ="fechaYHora",nullable = false )
+    private String fechaYHora;//obligatorio y formato internacional
 
     public Pedido() {
     }
 
-    public Pedido(Integer id, LocalDateTime fechaYHora) {
+    public Pedido(Integer id, String fechaYHora) {
         this.id_pedido = id;
-        FechaYHora = fechaYHora;
+        this.fechaYHora = fechaYHora;
     }
 
-    public Integer getId() {
+
+    public Integer getId_pedido() {
         return id_pedido;
     }
 
-    public void setId(Integer id) {
-        this.id_pedido = id;
+    public void setId_pedido(Integer id_pedido) {
+        this.id_pedido = id_pedido;
     }
 
-    public LocalDateTime getFechaYHora() {
-        return FechaYHora;
+    public String getFechaYHora() {
+        return fechaYHora;
     }
 
-    public void setFechaYHora(LocalDateTime fechaYHora) {
-        FechaYHora = fechaYHora;
+    public void setFechaYHora(String fechaYHora) {
+        this.fechaYHora = fechaYHora;
     }
 }

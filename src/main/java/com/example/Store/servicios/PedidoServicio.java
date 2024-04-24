@@ -20,7 +20,7 @@ public class PedidoServicio {
 
     public Pedido guardarPedido(Pedido datosPedido) throws Exception{
         try{
-            if(validacionPedido.validarFechaHora(String.valueOf(datosPedido.getFechaYHora()))==false) {
+            if(validacionPedido.validarFechaHora(datosPedido.getFechaYHora())==false) {
                 throw new Exception("NOMBRE INVALIDO, REVISE PORFAVOR");
             }  return pedidoRepositorio.save(datosPedido);
         }catch (Exception error){
