@@ -36,6 +36,46 @@ public class MarcaControlador {
 
         }
     }
+    @GetMapping
+    public ResponseEntity<?> consultarUsuarios() {
+        try {
+
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(marcaServicio.buscarTodosMarca());
+
+        } catch (Exception error) {
+
+            Map<String, Object> errores = new LinkedHashMap<>();
+            errores.put("hora:", LocalDateTime.now());
+            errores.put("mensaje", error.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errores);
+
+        }
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<?> buscarUsuarioPorId(@PathVariable Integer id) {
+        try {
+
+            return ResponseEntity
+                    .status(HttpStatus.FOUND)
+                    .body(marcaServicio.buscarMarcaPorId(id));
+
+        } catch (Exception error) {
+            Map<String, Object> errores = new LinkedHashMap<>();
+            errores.put("hora:", LocalDateTime.now());
+            errores.put("mensaje", error.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errores);
+        }
+
+    }
+
+}
 
     @GetMapping
     public ResponseEntity<?> consultarMarca(){

@@ -39,6 +39,7 @@ public class UsuarioControlador {
 
         }
     }
+<<<<<<< HEAD
     @GetMapping
     public ResponseEntity<?> consultarUsuarios(){
         try{
@@ -62,14 +63,52 @@ public class UsuarioControlador {
                     .status(HttpStatus.FOUND)
                     .body(usuarioServicio.buscarUsuarioPorId(id));
         }catch(Exception error){
+=======
+
+    @GetMapping
+    public  ResponseEntity <?> consultarUsuarios(){
+     try{
+
+         return ResponseEntity
+                 .status(HttpStatus.OK)
+                 .body(usuarioServicio.buscarTodosUsuarios());
+
+    }catch(Exception error){
+
+         Map<String, Object> errores = new LinkedHashMap<>();
+         errores.put("hora:", LocalDateTime.now());
+         errores.put("mensaje", error.getMessage());
+         return  ResponseEntity
+                 .status(HttpStatus.BAD_REQUEST)
+                 .body(errores);
+
+
+     }
+
+    }
+    @GetMapping("{id}")
+    public  ResponseEntity<?> buscarUsuarioPorId(@PathVariable Integer id){
+        try {
+
+            return ResponseEntity
+                    .status(HttpStatus.FOUND)
+                    .body(usuarioServicio.buscarUsuarioPorId(id));
+
+        }catch (Exception error){
+>>>>>>> c60937f16c08b73222ab4798c5ce74357b83d305
             Map<String, Object> errores = new LinkedHashMap<>();
             errores.put("hora:", LocalDateTime.now());
             errores.put("mensaje", error.getMessage());
             return  ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(errores);
+<<<<<<< HEAD
         }
 
+=======
+
+        }
+>>>>>>> c60937f16c08b73222ab4798c5ce74357b83d305
     }
 
 }

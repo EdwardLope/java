@@ -23,7 +23,7 @@ public class TipoPrendaControlador {
     public ResponseEntity<?> guardarTipoPrenda(@RequestBody TipoPrenda datosTipoPrenda) {
         try {
 
-            return  ResponseEntity
+            return ResponseEntity
                     .status(HttpStatus.OK)
                     .body(tipoPrendaServicio.guardarTipoPrenda(datosTipoPrenda));
 
@@ -31,13 +31,14 @@ public class TipoPrendaControlador {
             Map<String, Object> errores = new LinkedHashMap<>();
             errores.put("hora:", LocalDateTime.now());
             errores.put("mensaje", error.getMessage());
-            return  ResponseEntity
+            return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(errores);
 
         }
     }
 
+<<<<<<< HEAD
 
     @GetMapping
     public ResponseEntity<?> consultarTipoPrenda(){
@@ -66,6 +67,41 @@ public class TipoPrendaControlador {
             errores.put("hora:", LocalDateTime.now());
             errores.put("mensaje", error.getMessage());
             return  ResponseEntity
+=======
+    @GetMapping
+    public ResponseEntity<?> consultarUsuarios() {
+        try {
+
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(tipoPrendaServicio.buscarTodosTipoPrenda());
+
+        } catch (Exception error) {
+
+            Map<String, Object> errores = new LinkedHashMap<>();
+            errores.put("hora:", LocalDateTime.now());
+            errores.put("mensaje", error.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errores);
+
+        }
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<?> buscarUsuarioPorId(@PathVariable Integer id) {
+        try {
+
+            return ResponseEntity
+                    .status(HttpStatus.FOUND)
+                    .body(tipoPrendaServicio.buscarTipoPrendaPorId(id));
+
+        } catch (Exception error) {
+            Map<String, Object> errores = new LinkedHashMap<>();
+            errores.put("hora:", LocalDateTime.now());
+            errores.put("mensaje", error.getMessage());
+            return ResponseEntity
+>>>>>>> c60937f16c08b73222ab4798c5ce74357b83d305
                     .status(HttpStatus.BAD_REQUEST)
                     .body(errores);
         }

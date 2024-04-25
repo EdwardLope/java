@@ -36,6 +36,46 @@ public class DetalleControlador {
 
         }
     }
+    @GetMapping
+    public ResponseEntity<?> consultarUsuarios() {
+        try {
+
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(detalleServicio.buscarTodosDetalle());
+
+        } catch (Exception error) {
+
+            Map<String, Object> errores = new LinkedHashMap<>();
+            errores.put("hora:", LocalDateTime.now());
+            errores.put("mensaje", error.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errores);
+
+        }
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<?> buscarUsuarioPorId(@PathVariable Integer id) {
+        try {
+
+            return ResponseEntity
+                    .status(HttpStatus.FOUND)
+                    .body(detalleServicio.buscarDetallePorId(id));
+
+        } catch (Exception error) {
+            Map<String, Object> errores = new LinkedHashMap<>();
+            errores.put("hora:", LocalDateTime.now());
+            errores.put("mensaje", error.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errores);
+        }
+
+    }
+
+}
 
 
     @GetMapping
