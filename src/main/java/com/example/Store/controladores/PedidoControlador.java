@@ -6,10 +6,7 @@ import com.example.Store.servicios.PedidoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -38,6 +35,40 @@ public class PedidoControlador {
                     .body(errores);
 
         }
+    }
+
+
+    @GetMapping
+    public ResponseEntity<?> consultarPedido(){
+        try{
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(pedidoServicio.buscarTodosPedidos());
+        }catch(Exception error){
+            Map<String, Object> errores = new LinkedHashMap<>();
+            errores.put("hora:", LocalDateTime.now());
+            errores.put("mensaje", error.getMessage());
+            return  ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errores);
+        }
+
+    }
+    @GetMapping("{id}")
+    public  ResponseEntity<?>buscarPedidosPorId(@PathVariable Integer id){
+        try {
+            return ResponseEntity
+                    .status(HttpStatus.FOUND)
+                    .body(pedidoServicio.buscarPedidoPorId(id));
+        }catch(Exception error){
+            Map<String, Object> errores = new LinkedHashMap<>();
+            errores.put("hora:", LocalDateTime.now());
+            errores.put("mensaje", error.getMessage());
+            return  ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(errores);
+        }
+
     }
 
 }
